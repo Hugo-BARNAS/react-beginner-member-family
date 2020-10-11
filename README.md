@@ -29,7 +29,7 @@ Learning basic functions of React
 
 
 
-## What i learn, pratice: 
+## What I learn : 
 <ul>
  <li>Props
  <li>Components
