@@ -19,6 +19,7 @@ Learning basic functions of React
 
 ## Screenshots
 
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/57058997/95684784-283dda00-0bf4-11eb-802f-70c019ae716a.gif)
 
 
 ## Technologies
