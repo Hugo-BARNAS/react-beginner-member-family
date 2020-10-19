@@ -7,7 +7,7 @@ import './App.css'
 
 const famille = {
   membre1: {
-    nom: 'Anthony',
+    nom: 'Hugo',
     Age: 2
   },
   membre2: {
@@ -73,6 +73,18 @@ class App extends Component {
     this.setState({ isShow })
   }
 
+  handleCacherNom = id => {
+    //étatpe 1: copie de mon state 
+    const famille = { ...this.state.famille}
+    //le nom de la famille associé à l'id qui est égal au membre
+    //Pour chaque id le nom de la famille devient X
+    famille[id].nom = 'X'
+    //on met à jour le state 
+    this.setState({ famille })
+  }
+
+
+
   // une methode render qui retourne qq chose
   render() {
     const { titre } = this.props
@@ -83,24 +95,37 @@ class App extends Component {
       description = <strong>"Je suis un chien"</strong>
     }
 
+    //Pour faire un boucle dans un return, il faut faire 1/ faire un array de la liste et ensuite faire un .map
+    //Création d'un array via la méthode Object.keys de l'objet famille
+    const listFamily = Object.keys(famille)
+    console.log(listFamily)
+    //.map de Membre
+    const list = listFamily.map(membre => 
+      <Membre
+      //handleCacherNom est un props qui est une fonction qui transforme en X le nom de la famille de chaque membre
+      handleCacherNom = {() => this.handleCacherNom(membre)}
+      nom={famille[membre].nom}
+      age={famille[membre].Age}
+      auteur='test' />
+    )
+    console.log(list)
+
     return (
       <div className='App'>
         <h1>{titre}</h1>
 
         <p>Officia amet quis incididunt et amet fugiat pariatur.</p>
         <input type='text' />
-        <Membre
+
+        {list}
+        {/* <Membre
           nom={famille.membre1.nom}
           age={famille.membre1.Age}
           auteur='test' />
-        <input value={famille.membre1.nom} onChange={this.handleChange} type='text' style={{ margin: '5px' }} />
-        <input value={famille.membre1.Age} onChange={this.handleChangeAge} type='text' />
         <Membre
           nom={famille.membre2.nom}
           age={famille.membre2.Age}
           auteur='test' />
-        <input value={famille.membre2.nom} onChange={this.handleChange2} type='text' style={{ margin: '5px' }} />
-        <input value={famille.membre2.Age} onChange={this.handleChangeAge2} type='text' />
         <Membre
           nom={famille.membre3.nom}
           age={famille.membre3.Age}
@@ -108,21 +133,21 @@ class App extends Component {
         <Membre
           nom={famille.membre4.nom}
           age={famille.membre4.Age}
-          auteur='test' />
+          auteur='test' /> */}
         {/* On ne peut pas faire de condition classique à cause des accolades */}
         {/* quand un élément est null il n'est pas rendu */}
         {description}
 
-        <button onClick={this.handleShowDescription}>{
+        {/* <button onClick={this.handleShowDescription}>{
           isShow ? 'Cacher' : 'Montrer'
         }
-        </button>
+        </button> */}
 
 
         
-        <Button
+        {/* <Button
           vieillir={() => this.handleClick(2)}
-        />
+        /> */}
       </div>
     )
   }

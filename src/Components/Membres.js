@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Membre = ({ nom, auteur, age }) => {
+const Membre = ({ nom, auteur, age, handleCacherNom }) => {
   return (
     <div>
       <h2 style={{
@@ -9,8 +9,10 @@ const Membre = ({ nom, auteur, age }) => {
         padding: '20px'
       }}
       >
-          Membre de ma famille DUPOND : {nom.toUpperCase()}
+          Membre de la famille DUPOND : {nom.toUpperCase()}
       </h2>
+      {/* Au click du bouton on active la fonction */}
+       <button onClick= {handleCacherNom}>X</button>
       <h3>{age} ans</h3>
       <h3>{auteur}</h3>
     </div>
