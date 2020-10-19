@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Membre from './Components/Membres'
 import Button from './Components/Button'
+import ButtonShow from './Components/Button'
 import './App.css'
 
 
@@ -116,6 +117,9 @@ class App extends Component {
           isShow ? 'Cacher' : 'Montrer'
         }
         </button>
+
+
+        
         <Button
           vieillir={() => this.handleClick(2)}
         />
